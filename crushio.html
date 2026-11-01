@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crushio — by knottedbloom</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0d0809;--card:#171011;--ink:#f4e9df;--mute:#a8968b;--gold:#d9b38c;--rose:#b5546b;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;
+background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4rem 1.5rem;position:relative;
+background:radial-gradient(ellipse at 50% 30%,#4a1c2b 0%,#1e0d12 45%,var(--bg) 80%)}
+.hero::before,.hero::after{content:"";position:absolute;left:0;right:0;height:7vh;background:#000}
+.hero::before{top:0}.hero::after{bottom:0}
+.eyebrow{letter-spacing:.5em;text-transform:uppercase;font-size:.72rem;color:var(--gold);margin-bottom:1.5rem}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.4rem,13vw,9rem);line-height:1;letter-spacing:.06em;animation:rise 2s ease both}
+h1 em{color:var(--rose);font-style:italic}
+.tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,3vw,1.6rem);color:var(--mute);margin:1.5rem 0 2.5rem;animation:rise 2s .4s ease both}
+.btn{display:inline-block;padding:.9rem 2.2rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;letter-spacing:.25em;text-transform:uppercase;font-size:.75rem;transition:.4s}
+.btn:hover{background:var(--gold);color:#1a0f0f}
+@keyframes rise{from{opacity:0;transform:translateY(24px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+section{padding:6rem 1.5rem;max-width:1150px;margin:auto}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5vw,3.2rem);text-align:center}
+.sub{text-align:center;color:var(--mute);margin:.6rem 0 3.5rem;letter-spacing:.2em;text-transform:uppercase;font-size:.72rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.8rem}
+.card{background:var(--card);border:1px solid #2a1c1d;overflow:hidden;opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s,border-color .4s}
+.card.in{opacity:1;transform:none}
+.card:hover{border-color:var(--gold)}
+.ph{aspect-ratio:4/5;background:linear-gradient(160deg,#3a1722,#140b0d);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#6d5a52;font-family:var(--serif);font-style:italic}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
+.card:hover .ph img{transform:scale(1.07)}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,8,9,.65),transparent 45%)}
+.info{padding:1.2rem 1.3rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
+.info h3{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.2}
+.info p{color:var(--mute);font-size:.85rem;margin-top:.2rem}
+.price{font-family:var(--serif);color:var(--gold);font-size:1.4rem;white-space:nowrap}
+.order{display:block;text-align:center;padding:.8rem;border-top:1px solid #2a1c1d;color:var(--ink);text-decoration:none;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;transition:.3s}
+.order:hover{background:var(--rose)}
+.contact{text-align:center;background:radial-gradient(ellipse at 50% 100%,#3a1722,transparent 70%)}
+.contact p{color:var(--mute);margin:1rem auto 2rem;max-width:520px}
+.links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.wa{background:var(--gold);color:#1a0f0f}.wa:hover{background:#fff}
+footer{text-align:center;padding:2rem 1rem 3rem;color:#6d5a52;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="eyebrow">knottedbloom by Aiza</div>
+  <h1>Crush<em>io</em></h1>
+  <p class="tag">Handmade with love, one knot at a time.</p>
+  <a class="btn" href="#collection">Explore the collection</a>
+</header>
+
+<section id="collection">
+  <h2>The Collection</h2>
+  <p class="sub">Each piece made to order</p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Place Your Order</h2>
+  <p>No checkout, no fuss. Message us on WhatsApp with the piece you love and we'll take it from there.</p>
+  <div class="links">
+    <a class="btn wa" id="waMain" href="#">Chat on WhatsApp</a>
+    <a class="btn" id="igLink" href="#" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</section>
+<footer>© <span id="yr"></span> Crushio · knottedbloom by Aiza</footer>
+
+<script>
+/* ====== EDIT THIS SECTION ====== */
+var WHATSAPP = "923001234567";          // your number, country code first, no + or spaces
+var INSTAGRAM = "https://instagram.com/knottedbloom"; // put your exact Instagram link
+var CURRENCY = "Rs.";
+var PRODUCTS = [
+  {name:"Product One",   desc:"Short description", price:1500, img:"images/1.jpg"},
+  {name:"Product Two",   desc:"Short description", price:2200, img:"images/2.jpg"},
+  {name:"Product Three", desc:"Short description", price:1800, img:"images/3.jpg"},
+  {name:"Product Four",  desc:"Short description", price:2500, img:"images/4.jpg"},
+  {name:"Product Five",  desc:"Short description", price:1200, img:"images/5.jpg"},
+  {name:"Product Six",   desc:"Short description", price:3000, img:"images/6.jpg"}
+];
+/* ====== END EDIT ====== */
+
+function wa(msg){return "https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg)}
+var grid=document.getElementById("grid");
+PRODUCTS.forEach(function(p,i){
+  var c=document.createElement("article");c.className="card";c.style.transitionDelay=(i%3)*120+"ms";
+  var ph=document.createElement("div");ph.className="ph";ph.textContent="Your photo";
+  var im=new Image();im.alt=p.name;im.loading="lazy";
+  im.onload=function(){ph.textContent="";ph.appendChild(im)};
+  im.src=p.img;
+  var info=document.createElement("div");info.className="info";
+  var l=document.createElement("div");
+  var h=document.createElement("h3");h.textContent=p.name;
+  var d=document.createElement("p");d.textContent=p.desc;
+  l.appendChild(h);l.appendChild(d);
+  var pr=document.createElement("div");pr.className="price";pr.textContent=CURRENCY+" "+p.price.toLocaleString("en-US").replace(/^Rs\.\s/,"");
+  pr.textContent=CURRENCY+" "+p.price.toLocaleString("en-US");
+  info.appendChild(l);info.appendChild(pr);
+  var o=document.createElement("a");o.className="order";o.textContent="Order on WhatsApp";o.target="_blank";o.rel="noopener";
+  o.href=wa("Hi! I'd like to order "+p.name+" from Crushio.");
+  c.appendChild(ph);c.appendChild(info);c.appendChild(o);grid.appendChild(c);
+});
+document.getElementById("waMain").href=wa("Hi! I found you through your Crushio website.");
+document.getElementById("waMain").target="_blank";
+document.getElementById("igLink").href=INSTAGRAM;
+document.getElementById("yr").textContent=new Date().getFullYear();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".card").forEach(function(c){io.observe(c)});
+</script>
+</body>
+</html>
