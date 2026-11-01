@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Crushio — by knottedbloom</title>
+<title>Crochet — by knottedbloom</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{color-scheme:dark;--bg:#0d0809;--card:#171011;--ink:#f4e9df;--mute:#a8968b;--gold:#d9b38c;--rose:#b5546b;
@@ -24,21 +24,23 @@ h1 em{color:var(--rose);font-style:italic}
 .btn{display:inline-block;padding:.9rem 2.2rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;letter-spacing:.25em;text-transform:uppercase;font-size:.75rem;transition:.4s}
 .btn:hover{background:var(--gold);color:#1a0f0f}
 @keyframes rise{from{opacity:0;transform:translateY(24px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
-section{padding:6rem 1.5rem;max-width:1150px;margin:auto}
+section{padding:6rem 1.2rem;max-width:1200px;margin:auto}
 h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5vw,3.2rem);text-align:center}
 .sub{text-align:center;color:var(--mute);margin:.6rem 0 3.5rem;letter-spacing:.2em;text-transform:uppercase;font-size:.72rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.8rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.6rem}
 .card{background:var(--card);border:1px solid #2a1c1d;overflow:hidden;opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s,border-color .4s}
 .card.in{opacity:1;transform:none}
 .card:hover{border-color:var(--gold)}
-.ph{aspect-ratio:4/5;background:linear-gradient(160deg,#3a1722,#140b0d);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#6d5a52;font-family:var(--serif);font-style:italic}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
-.card:hover .ph img{transform:scale(1.07)}
-.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,8,9,.65),transparent 45%)}
-.info{padding:1.2rem 1.3rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
-.info h3{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.2}
+.ph{aspect-ratio:4/5;background:linear-gradient(160deg,#3a1722,#140b0d);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#6d5a52;font-family:var(--serif);font-style:italic;cursor:pointer}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s,transform 1.4s}
+.ph img.on{opacity:1}
+.card:hover .ph img.on{transform:scale(1.05)}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(13,8,9,.6),transparent 40%);pointer-events:none}
+.cnt{position:absolute;right:.7rem;top:.7rem;z-index:2;font-size:.68rem;letter-spacing:.15em;background:rgba(0,0,0,.55);padding:.2rem .6rem;border-radius:20px;color:var(--gold)}
+.info{padding:1.1rem 1.2rem 1.4rem;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
+.info h3{font-family:var(--serif);font-weight:600;font-size:1.35rem;line-height:1.2}
 .info p{color:var(--mute);font-size:.85rem;margin-top:.2rem}
-.price{font-family:var(--serif);color:var(--gold);font-size:1.4rem;white-space:nowrap}
+.price{font-family:var(--serif);color:var(--gold);font-size:1.35rem;white-space:nowrap}
 .order{display:block;text-align:center;padding:.8rem;border-top:1px solid #2a1c1d;color:var(--ink);text-decoration:none;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;transition:.3s}
 .order:hover{background:var(--rose)}
 .contact{text-align:center;background:radial-gradient(ellipse at 50% 100%,#3a1722,transparent 70%)}
@@ -51,67 +53,91 @@ footer{text-align:center;padding:2rem 1rem 3rem;color:#6d5a52;font-size:.75rem;l
 <body>
 <header class="hero">
   <div class="eyebrow">knottedbloom by Aiza</div>
-  <h1>Crush<em>io</em></h1>
-  <p class="tag">Handmade with love, one knot at a time.</p>
+  <h1>Croch<em>et</em></h1>
+  <p class="tag">Handmade keychains &amp; charms, one knot at a time.</p>
   <a class="btn" href="#collection">Explore the collection</a>
 </header>
 
 <section id="collection">
   <h2>The Collection</h2>
-  <p class="sub">Each piece made to order</p>
+  <p class="sub">Each piece made to order · tap a photo for more views</p>
   <div class="grid" id="grid"></div>
 </section>
 
 <section class="contact" id="contact">
   <h2>Place Your Order</h2>
-  <p>No checkout, no fuss. Message us on WhatsApp with the piece you love and we'll take it from there.</p>
+  <p>No checkout, no fuss. Message us on WhatsApp with the piece you love, your colour choice and quantity, and we'll take it from there.</p>
   <div class="links">
     <a class="btn wa" id="waMain" href="#">Chat on WhatsApp</a>
     <a class="btn" id="igLink" href="#" target="_blank" rel="noopener">Instagram</a>
   </div>
 </section>
-<footer>© <span id="yr"></span> Crushio · knottedbloom by Aiza</footer>
+<footer>© <span id="yr"></span> Crochet · knottedbloom by Aiza</footer>
 
 <script>
 /* ====== EDIT THIS SECTION ====== */
-var WHATSAPP = "923001234567";          // your number, country code first, no + or spaces
-var INSTAGRAM = "https://instagram.com/knottedbloom"; // put your exact Instagram link
+var WHATSAPP = "923002467017";
+var INSTAGRAM = "https://www.instagram.com/knottedbloom_by_aiza";
 var CURRENCY = "Rs.";
+var D = function(n){return "images/"+n+".jpeg"};
 var PRODUCTS = [
-  {name:"Product One",   desc:"Short description", price:1500, img:"images/1.jpg"},
-  {name:"Product Two",   desc:"Short description", price:2200, img:"images/2.jpg"},
-  {name:"Product Three", desc:"Short description", price:1800, img:"images/3.jpg"},
-  {name:"Product Four",  desc:"Short description", price:2500, img:"images/4.jpg"},
-  {name:"Product Five",  desc:"Short description", price:1200, img:"images/5.jpg"},
-  {name:"Product Six",   desc:"Short description", price:3000, img:"images/6.jpg"}
+  {name:"Swirl Candy Keychain",  desc:"Pink or blue candy swirl with a tiny cap",       price:900,  imgs:[D(1),D(3)]},
+  {name:"Puffy Heart Keychain",  desc:"Soft stuffed heart in lilac or cream",           price:700,  imgs:[D(2),D(6)]},
+  {name:"Cherry Blossom Bookmark",desc:"Embroidered blossom with a long braided tail",  price:600,  imgs:[D(4),D(5)]},
+  {name:"Little Octopus",        desc:"Teal amigurumi octopus with sweet stitched eyes", price:800,  imgs:[D(9),D(7)]},
+  {name:"Ice Cream Cone",        desc:"Strawberry scoop on a chocolate waffle cone",    price:1000, imgs:[D(8),D(11)]},
+  {name:"Daisy Keychain",        desc:"Big white daisy with sunny centre and a leaf",   price:1000, imgs:[D(10),D(12)]},
+  {name:"Strawberry Keychain",   desc:"Plump red strawberry with seed stitches",        price:800,  imgs:[D(13),D(30)]},
+  {name:"Star &amp; Moon Keychains",desc:"Sky-blue star and cream crescent, sold each",  price:700,  imgs:[D(14),D(18)]},
+  {name:"Sea Turtle Keychain",   desc:"Cuddly turtle with a lilac shell",               price:1200, imgs:[D(15),D(16)]},
+  {name:"Watermelon Slice",      desc:"Juicy slice with stitched seeds",                price:800,  imgs:[D(17),D(21)]},
+  {name:"Jellyfish Charm",       desc:"Mint jellyfish with a pearl and flower-bead strap", price:1300, imgs:[D(19),D(20)]},
+  {name:"Cherry Charm",          desc:"Twin red cherries with leaves and a loop",       price:900,  imgs:[D(22),D(25)]},
+  {name:"Bow Keychain",          desc:"Pretty bow in sky blue, mint or indigo",         price:700,  imgs:[D(23)]},
+  {name:"Mini Bouquet Keychain", desc:"Daisy or tulip bouquet, wrapped and tied",       price:1200, imgs:[D(24)]},
+  {name:"Pearl Blossom Flower",  desc:"Pink ombre flower with a pearl centre",          price:600,  imgs:[D(29),D(26)]},
+  {name:"Blue Blossom Charm",    desc:"Blue ombre flower with a pearl and bead strap",  price:1000, imgs:[D(28),D(27)]}
 ];
 /* ====== END EDIT ====== */
 
-function wa(msg){return "https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg)}
+function wa(m){return "https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(m)}
 var grid=document.getElementById("grid");
 PRODUCTS.forEach(function(p,i){
-  var c=document.createElement("article");c.className="card";c.style.transitionDelay=(i%3)*120+"ms";
-  var ph=document.createElement("div");ph.className="ph";ph.textContent="Your photo";
-  var im=new Image();im.alt=p.name;im.loading="lazy";
-  im.onload=function(){ph.textContent="";ph.appendChild(im)};
-  im.src=p.img;
+  var c=document.createElement("article");c.className="card";c.style.transitionDelay=(i%4)*100+"ms";
+  var ph=document.createElement("div");ph.className="ph";
+  var t=document.createElement("span");t.textContent="Your photo";ph.appendChild(t);
+  var ims=[],cur=0;
+  p.imgs.forEach(function(src,k){
+    var im=new Image();im.alt=p.name.replace(/&amp;/g,"&");im.loading="lazy";
+    im.onerror=function(){im.remove()};
+    im.src=src;if(k===0)im.className="on";ph.appendChild(im);ims.push(im);
+  });
+  function show(n){ims.forEach(function(im,k){im.classList.toggle("on",k===n)});cur=n;if(cnt)cnt.textContent=(n+1)+" / "+ims.length}
+  var cnt=null;
+  if(ims.length>1){
+    cnt=document.createElement("div");cnt.className="cnt";cnt.textContent="1 / "+ims.length;ph.appendChild(cnt);
+    ph.addEventListener("click",function(){show((cur+1)%ims.length)});
+    if(window.matchMedia("(hover:hover)").matches){
+      ph.addEventListener("mouseenter",function(){show(1)});
+      ph.addEventListener("mouseleave",function(){show(0)});
+    }
+  }
   var info=document.createElement("div");info.className="info";
   var l=document.createElement("div");
-  var h=document.createElement("h3");h.textContent=p.name;
+  var h=document.createElement("h3");h.innerHTML=p.name;
   var d=document.createElement("p");d.textContent=p.desc;
   l.appendChild(h);l.appendChild(d);
-  var pr=document.createElement("div");pr.className="price";pr.textContent=CURRENCY+" "+p.price.toLocaleString("en-US").replace(/^Rs\.\s/,"");
-  pr.textContent=CURRENCY+" "+p.price.toLocaleString("en-US");
+  var pr=document.createElement("div");pr.className="price";pr.textContent=CURRENCY+" "+p.price.toLocaleString("en-US");
   info.appendChild(l);info.appendChild(pr);
   var o=document.createElement("a");o.className="order";o.textContent="Order on WhatsApp";o.target="_blank";o.rel="noopener";
-  o.href=wa("Hi! I'd like to order "+p.name+" from Crushio.");
+  o.href=wa("Hi! I'd like to order: "+p.name.replace(/&amp;/g,"&")+" (Rs. "+p.price+"). Please share colour options and delivery details.");
   c.appendChild(ph);c.appendChild(info);c.appendChild(o);grid.appendChild(c);
 });
-document.getElementById("waMain").href=wa("Hi! I found you through your Crushio website.");
+document.getElementById("waMain").href=wa("Hi! I found you through your Crochet website.");
 document.getElementById("waMain").target="_blank";
 document.getElementById("igLink").href=INSTAGRAM;
 document.getElementById("yr").textContent=new Date().getFullYear();
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll(".card").forEach(function(c){io.observe(c)});
 </script>
 </body>
